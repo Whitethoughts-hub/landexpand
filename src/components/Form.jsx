@@ -9,72 +9,129 @@ const ContactFormSection = () => {
     agree: false,
   });
 
+  const [errors, setErrors] = useState({});
+
+  // VALIDATION RULES
+  const nameRegex = /^[A-Za-z.\s]*$/;
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  const phoneRegex = /^[6-9][0-9]{9}$/;
+
+  // VALIDATION FUNCTION
+  const validate = () => {
+    let newErrors = {};
+
+    if (!formData.name || !nameRegex.test(formData.name)) {
+      newErrors.name = "Enter valid name.";
+    }
+
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      newErrors.email = "Enter valid email.";
+    }
+
+    if (!formData.mobile || !phoneRegex.test(formData.mobile)) {
+      newErrors.mobile = "Enter valid 10-digit number.";
+    }
+
+    if (!formData.agree) {
+      newErrors.agree = "Required *";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // HANDLE INPUT CHANGE
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
     });
   };
 
+  // SUBMIT
+  // SUBMIT
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted: ", formData);
+
+    if (!validate()) return;
+
+    // Log the filled form data to console
+    console.log("Form Data Submitted:", formData);
+
+    // Reset form if needed
+    setFormData({
+      name: "",
+      email: "",
+      mobile: "",
+      agree: false,
+    });
+
+    setErrors({});
   };
 
   return (
-    <section
-      id="enquiry-form"
-      className="w-full flex justify-center bg-gray-50 pt-[100px] pb-[40px] px-[20px] md:px-[40px]"
-    >
-      <div className="w-full max-w-[1300px] flex flex-col items-center">
-        {/* FORM CONTAINER */}
-        <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[40%] bg-white shadow-md rounded-xl p-8">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
-            Contact Us
-          </h2>
+    <>
+      <div
+        className="w-full flex flex-col items-center pb-[50px] px-[20px]"
+        id="enquiry-form"
+      >
+        {/* FORM CARD */}
+        <div className="w-full sm:w-[90%] md:w-[40%] tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative z-10">
+          <h2 className="text-[32px] mb-[30px] text-center">Contact Us</h2>
 
-          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+          <form
+            className="flex flex-col gap-[11px] items-start justify-baseline"
+            onSubmit={handleSubmit}
+          >
             {/* Name */}
-            <div className="flex flex-col">
-              <label className="font-medium mb-1">Name</label>
+            <div className="flex flex-col w-[100%]">
+              <label className=" mb-1 text-[16px]">Name</label>
               <input
                 type="text"
                 name="name"
-                className="border rounded-lg px-4 py-2"
+                className="border rounded-lg px-4 py-2 text-sm "
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
-                required
               />
+              <p className="h-[10px] text-red-500  error-text mt-[5px] leading-none">
+                {errors.name}
+              </p>
             </div>
 
             {/* Email */}
-            <div className="flex flex-col">
-              <label className="font-medium mb-1">Email</label>
+            <div className="flex flex-col  w-[100%]">
+              <label className="mb-1 text-[16px]">Email</label>
               <input
                 type="email"
                 name="email"
-                className="border rounded-lg px-4 py-2"
+                className="border rounded-lg px-4 py-2 text-sm"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
-                required
               />
+              <p className="h-[10px] text-red-500  error-text mt-[5px] leading-none">
+                {errors.email}
+              </p>
             </div>
 
             {/* Mobile */}
-            <div className="flex flex-col">
-              <label className="font-medium mb-1">Mobile</label>
+            <div className="flex flex-col  w-[100%]">
+              <label className="mb-1 text-[16px]">Mobile</label>
               <input
                 type="tel"
                 name="mobile"
-                className="border rounded-lg px-4 py-2"
+                maxLength={10}
+                className="border rounded-lg px-4 py-2 text-sm"
                 placeholder="Enter your mobile number"
                 value={formData.mobile}
                 onChange={handleChange}
-                required
               />
+              <p className="h-[10px] text-red-500 error-text mt-[5px] leading-none">
+                {errors.mobile}
+              </p>
             </div>
 
             {/* Checkbox */}
@@ -84,75 +141,67 @@ const ContactFormSection = () => {
                 name="agree"
                 checked={formData.agree}
                 onChange={handleChange}
-                className="mt-1"
-                required
+                className="mt-[3px]"
               />
-              <p className="text-sm leading-tight">
+              <p className=" checkbox-text leading-tight checkbox-text">
                 I agree to the terms, conditions and privacy policies of this
                 website.
               </p>
             </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="bg-black text-white py-3 rounded-lg text-lg hover:bg-gray-800 transition"
-            >
-              Submit
-            </button>
+            <p className="h-[14px] text-red-500 error-text leading-none">
+              {errors.agree}
+            </p>
+
+            {/* Button */}
+            <div className="w-full items-center flex justify-center">
+              <button
+                type="submit"
+                className="
+      inline-flex  items-center justify-center
+      rounded-md bg-[#F1701E]
+      px-8 py-2 font-medium text-neutral-50 
+      shadow-lg shadow-neutral-500/20 
+      transition active:scale-95
+          "
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
 
-        {/* FOOTER SECTION */}
-        <div className="w-full mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-          <p className="text-center md:text-left">
-            © 2025 All rights reserved. <br />
+        {/* FOOTER */}
+      </div>
+      <footer className="w-full bg-[#F1701E] text-white ">
+        <div className="max-w-[1300px] pt-[10px] pb-[10px] px-[20px] md:px-[40px]  flex flex-col md:flex-row justify-between items-center">
+          <p className="text-center md:text-left footer-text">
+            © 2025 All rights reserved | Privacy Policy
+            <br />
             Designed & Developed by{" "}
             <a
               href="https://whitethoughts.in"
-              className="underline hover:text-black"
+              target="_blank"
+              className="footer-text"
             >
               White Thoughts & Branding
             </a>
           </p>
 
-          {/* SOCIAL ICONS */}
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-700 hover:text-black text-lg">
+          <div className="flex gap-4">
+            <a href="#" className="text-lg">
               <FaFacebookF />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black text-lg">
+            <a href="#" className="text-lg">
               <FaInstagram />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black text-lg">
+            <a href="#" className=" text-lg">
               <FaLinkedinIn />
             </a>
           </div>
         </div>
-      </div>
-      <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 duration-500">
-        <div class="translate-y-0 opacity-100 transition group-hover:-translate-y-[150%] group-hover:opacity-0">
-          Hover me
-        </div>
-        <div class="absolute translate-y-[150%] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-          >
-            <path
-              d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </div>
-      </button>
-    </section>
+      </footer>
+    </>
   );
 };
 

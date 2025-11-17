@@ -1,45 +1,80 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const locations = [
   {
-    name: "Lorem City",
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris sit amet lorem.",
+    name: "Financial District",
+    info: "30min",
     map: "https://maps.google.com/maps?q=hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
-    name: "Ipsum Town",
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt arcu vel risus.",
+    name: "Kokapet",
+    info: "32min",
     map: "https://maps.google.com/maps?q=bengaluru&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
-    name: "Dolor Village",
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo non.",
+    name: "Banglore Highway",
+    info: "20min",
     map: "https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
-    name: "Sit Amet Region",
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis.",
+    name: "ORR",
+    info: "15min",
     map: "https://maps.google.com/maps?q=pune&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  },
-  {
-    name: "Consectetur Place",
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet dolor nec.",
-    map: "https://maps.google.com/maps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
 ];
 
 const Locations = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const bigTextRef = useRef(null);
+
+  // SCROLL ANIMATION FOR BIG TEXT
+  const { scrollYProgress } = useScroll({
+    target: bigTextRef,
+    offset: ["start 80%", "start 10%"],
+  });
+
+  const bigX = useTransform(scrollYProgress, [0, 1], [200, 0]);
+  const bigOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center">
-      {/* SAME OUTER CSS AS AMENITIES */}
-      <div className="max-w-[1300px] pb-[100px] px-5 md:px-10 w-full">
-        <h1 className="text-[32px] text-left pb-10">Lorem Ipsum Locations</h1>
+    <section className="w-full flex flex-col items-center justify-center relative overflow-hidden py-0">
+      {/* HEADING SECTION */}
+      <div
+        ref={bigTextRef}
+        className="max-w-[1300px] w-full px-5 md:px-10 flex justify-between items-end overflow-visible pb-[30px] relative"
+      >
+        {/* Small heading */}
+        <h2 className="text-[32px] z-20 relative mb-[10px] ">
+          Location Highlights
+        </h2>
 
+        {/* Big animated heading */}
+        <motion.h1
+          style={{ x: bigX, opacity: bigOpacity }}
+          className="
+            hidden md:block
+            text-black/5
+            font-light
+            pointer-events-none
+            select-none
+            text-[70px] lg:text-[140px]
+            leading-[1]
+            whitespace-normal
+            break-words
+            max-w-[90%]
+            lg:max-w-[1100px]
+            text-right
+          "
+        >
+          LOCATION
+        </motion.h1>
+      </div>
+
+      {/* CONTENT SECTION */}
+      <div className="max-w-[1300px] pb-[100px] px-5 md:px-10 w-full">
         {/* DESKTOP */}
         <div className="hidden lg:flex gap-10">
-          {/* LEFT LIST */}
           <div className="w-[35%] flex flex-col gap-5">
             {locations.map((loc, index) => (
               <div
@@ -48,7 +83,7 @@ const Locations = () => {
               >
                 <button
                   onClick={() => setActiveIndex(index)}
-                  className="w-full text-left px-5 py-4 font-medium text-[20px] flex justify-between items-center"
+                  className="w-full text-left px-5 py-4 text-[18px] flex justify-between items-center"
                 >
                   {loc.name}
                   <span className="text-xl">
@@ -57,14 +92,15 @@ const Locations = () => {
                 </button>
 
                 {activeIndex === index && (
-                  <div className="px-5 pb-4 text-gray-600">{loc.info}</div>
+                  <div className="px-5 pb-4 text-gray-600 text-[16px]">
+                    {loc.info}
+                  </div>
                 )}
               </div>
             ))}
           </div>
 
-          {/* RIGHT MAP */}
-          <div className="w-[65%] h-[450px] border rounded-md overflow-hidden">
+          <div className="w-[65%] h-[450px] rounded overflow-hidden">
             <iframe
               key={activeIndex}
               src={locations[activeIndex].map}
@@ -81,7 +117,7 @@ const Locations = () => {
             <div key={index} className="border border-gray-300 rounded-md">
               <button
                 onClick={() => setActiveIndex(index)}
-                className="w-full text-left px-5 py-4 font-medium text-[20px] flex justify-between items-center"
+                className="w-full text-left px-5 py-4 text-[18px] flex justify-between items-center"
               >
                 {loc.name}
                 <span className="text-xl">
@@ -91,9 +127,11 @@ const Locations = () => {
 
               {activeIndex === index && (
                 <>
-                  <div className="px-5 pb-4 text-gray-600">{loc.info}</div>
+                  <div className="px-5 pb-4 text-gray-600 text-[16px]">
+                    {loc.info}
+                  </div>
 
-                  <div className="w-full h-[250px] border-t">
+                  <div className="w-full h-[250px]">
                     <iframe
                       key={activeIndex}
                       src={loc.map}

@@ -4,11 +4,11 @@ import Header from "../components/header";
 
 const Banner = () => {
   return (
-    <section className="relative w-full h-[93vh] md:h-screen bg-[#f0f0f0] overflow-hidden">
+    <section className="relative w-full h-screen bg-[#f0f0f0] overflow-hidden">
       <div className="relative w-full h-full px-5 md:px-10">
         {/* Video Background */}
         <video
-          className="
+          className=" 
             absolute top-1/2 left-1/2 
             min-w-full min-h-full 
             -translate-x-1/2 -translate-y-1/2
@@ -39,9 +39,13 @@ const Banner = () => {
           </div>
 
           <div className="w-full max-w-[1300px] flex items-center justify-between mb-[20px] px-[20px] md:px-[40px]">
-            <p className="w-[300px] text-white">Lorem ipsum</p>
+            <p className="w-[300px] text-white">
+              500 Acre <br /> 25M+ Sq.Ft Potential
+            </p>
 
-            <p className="w-[300px] text-white  text-right">Lorem ipsum</p>
+            <p className="w-[300px] text-white  text-right">
+              The New Front Door <br /> To Hyderabad
+            </p>
           </div>
         </div>
       </div>

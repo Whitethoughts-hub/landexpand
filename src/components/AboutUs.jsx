@@ -1,20 +1,10 @@
 const AboutUs = () => {
   return (
-    <section className="w-full flex items-center justify-center">
+    <section className="w-full flex items-center justify-center bg-[white]">
       <div className="max-w-[1300px] px-5 md:px-10 py-[100px] flex flex-col items-center justify-center">
-        <h1 className="text-center text-[32px] pb-[20px]">About Us</h1>
+        <h2 className="text-center text-[32px] pb-[20px]">About Us</h2>
 
-        <p
-          className="
-          text-center 
-          w-full 
-          sm:w-[90%] 
-          md:w-[70%] 
-          lg:w-[50%] 
-          text-[16px] 
-          leading-[1.7]
-        "
-        >
+        <p className="text-center w-full md:w-[75%]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quis
           enim nemo sunt molestiae tenetur adipisci quasi at! Nostrum, quas
           architecto maxime nobis modi maiores at soluta corporis magnam
