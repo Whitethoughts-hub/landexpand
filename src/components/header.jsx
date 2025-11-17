@@ -50,17 +50,27 @@ const Header = () => {
           <button
             onClick={scrollToForm}
             className={`
-              group relative hover:border-[#F1701E] h-10 overflow-hidden rounded-md border px-6 py-2 text-sm font-medium transition-all duration-300
-              ${
-                scrolled ? "text-black border-black" : "text-white border-white"
-              }
-            `}
+    group relative flex items-center justify-center 
+    hover:border-[#F1701E] px-3 font-semibold py-2 overflow-hidden rounded-md border 
+    transition-all duration-300
+    ${
+      scrolled
+        ? "text-black border-black hover:text-[white]"
+        : "text-white border-white"
+    }
+  `}
           >
-            <span className="relative z-10">ENQUIRE NOW</span>
+            <span className="relative z-10 text-[14px] leading-none">
+              ENQUIRE NOW
+            </span>
 
-            {/* Ripple orange effect stays SAME */}
+            {/* Ripple orange effect */}
             <span className="absolute inset-0 overflow-hidden rounded-md">
-              <span className="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full bg-[#F1701E]  transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150"></span>
+              <span
+                className="absolute left-0 aspect-square w-full origin-center 
+      -translate-x-full rounded-full bg-[#F1701E] transition-all duration-500 
+      group-hover:-translate-x-0 group-hover:scale-150"
+              ></span>
             </span>
           </button>
         </div>

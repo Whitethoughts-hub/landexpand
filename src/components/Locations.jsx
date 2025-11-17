@@ -44,12 +44,10 @@ const Locations = () => {
         ref={bigTextRef}
         className="max-w-[1300px] w-full px-5 md:px-10 flex justify-between items-end overflow-visible pb-[30px] relative"
       >
-        {/* Small heading */}
-        <h2 className="text-[32px] z-20 relative mb-[10px] ">
+        <h2 className="text-[32px] z-20 relative mb-[10px]">
           Location Highlights
         </h2>
 
-        {/* Big animated heading */}
         <motion.h1
           style={{ x: bigX, opacity: bigOpacity }}
           className="
@@ -75,6 +73,7 @@ const Locations = () => {
       <div className="max-w-[1300px] pb-[100px] px-5 md:px-10 w-full">
         {/* DESKTOP */}
         <div className="hidden lg:flex gap-10">
+          {/* LEFT SIDE BUTTONS */}
           <div className="w-[35%] flex flex-col gap-5">
             {locations.map((loc, index) => (
               <div
@@ -100,13 +99,17 @@ const Locations = () => {
             ))}
           </div>
 
+          {/* MAP */}
           <div className="w-[65%] h-[450px] rounded overflow-hidden">
             <iframe
               key={activeIndex}
               src={locations[activeIndex].map}
               className="w-full h-full"
               title="location-map"
-              loading="lazy"
+              loading="eager"
+              referrerPolicy="no-referrer-when-downgrade"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              sandbox="allow-scripts allow-same-origin allow-popups"
             ></iframe>
           </div>
         </div>
@@ -137,6 +140,10 @@ const Locations = () => {
                       src={loc.map}
                       className="w-full h-full"
                       title="location-map-mobile"
+                      loading="eager"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      sandbox="allow-scripts allow-same-origin allow-popups"
                     ></iframe>
                   </div>
                 </>

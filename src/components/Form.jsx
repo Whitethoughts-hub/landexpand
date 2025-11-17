@@ -162,7 +162,7 @@ const ContactFormSection = () => {
       rounded-md bg-[#F1701E]
       px-8 py-2 font-medium text-neutral-50 
       shadow-lg shadow-neutral-500/20 
-      transition active:scale-95
+      transition hover:scale-95
           "
               >
                 Submit
