@@ -66,7 +66,13 @@ const KeyBenefits = () => {
               key={i}
               className="w-full md:w-[30%] flex flex-col items-center"
             >
-              <img src={img} alt="" className="w-full h-auto object-cover" />
+              <motion.img
+                src={img}
+                alt=""
+                className="w-full h-auto object-cover"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
               <p className="text-center mt-4 text-gray-700 leading-[1.4]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>

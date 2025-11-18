@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+import FormBg from "../assets/Form-Bg-Image.jpeg";
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -74,11 +74,12 @@ const ContactFormSection = () => {
   return (
     <>
       <div
-        className="w-full flex flex-col items-center pb-[50px] px-[20px]"
         id="enquiry-form"
+        className="w-full flex flex-col items-center pb-[50px] px-[20px] bg-cover bg-center bg-no-repeat pt-[50px]"
+        style={{ backgroundImage: `url(${FormBg})` }}
       >
         {/* FORM CARD */}
-        <div className="w-full sm:w-[90%] md:w-[40%] tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative z-10">
+        <div className="w-full sm:w-[90%] md:w-[40%] tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative z-10 opacity-100">
           <h2 className="text-[32px] mb-[30px] text-center">Contact Us</h2>
 
           <form
@@ -173,8 +174,8 @@ const ContactFormSection = () => {
 
         {/* FOOTER */}
       </div>
-      <footer className="w-full bg-[#F1701E] text-white ">
-        <div className="max-w-[1300px] pt-[10px] pb-[10px] px-[20px] md:px-[40px]  flex flex-col md:flex-row justify-between items-center">
+      <div className="w-full flex items-center justify-center bg-[#F1701E]">
+        <footer className="max-w-[1300px] w-full text-white flex md:flex-row flex-col items-center justify-between px-[20px] md:px-[40px] py-[10px]">
           <p className="text-center md:text-left footer-text">
             © 2025 All rights reserved | Privacy Policy
             <br />
@@ -188,19 +189,19 @@ const ContactFormSection = () => {
             </a>
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-4 md:mt-0">
             <a href="#" className="text-lg">
               <FaFacebookF />
             </a>
             <a href="#" className="text-lg">
               <FaInstagram />
             </a>
-            <a href="#" className=" text-lg">
+            <a href="#" className="text-lg">
               <FaLinkedinIn />
             </a>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </>
   );
 };

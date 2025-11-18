@@ -4,6 +4,8 @@ import KeyBenefits from "../components/KeyBenefits";
 import Amenities from "../components/Amenities";
 import Locations from "../components/Locations";
 import Form from "../components/Form";
+import ScrollToTop from "../components/ScrollToTopButton";
+import LocationNormal from "../components/LocationNormal";
 const main = () => {
   return (
     <>
@@ -11,8 +13,9 @@ const main = () => {
       <AboutUs />
       <KeyBenefits />
       <Amenities />
-      <Locations />
+      <LocationNormal />
       <Form />
+      <ScrollToTop />
     </>
   );
 };
