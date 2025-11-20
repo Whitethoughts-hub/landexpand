@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import FormBg from "../assets/Form-Bg-Image.jpeg";
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -73,19 +71,16 @@ const ContactFormSection = () => {
 
   return (
     <>
-      <div
-        id="enquiry-form"
-        className="w-full flex flex-col items-center pb-[50px] px-[20px] bg-cover bg-center bg-no-repeat pt-[50px]"
-        style={{ backgroundImage: `url(${FormBg})` }}
-      >
+      <div className="w-full flex flex-col items-center pb-[50px]  bg-cover bg-center bg-no-repeat ">
         {/* FORM CARD */}
-        <div className="w-full sm:w-[90%] md:w-[40%] tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative z-10 opacity-100">
-          <h2 className="text-[32px] mb-[30px] text-center">Contact Us</h2>
-
+        <div className="w-full tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative z-10 opacity-100">
           <form
             className="flex flex-col gap-[11px] items-start justify-baseline"
             onSubmit={handleSubmit}
           >
+            <h2 className="text-[32px] mb-[30px] w-full text-center md:hidden block">
+              Contact Us
+            </h2>
             {/* Name */}
             <div className="flex flex-col w-[100%]">
               <label className=" mb-1 text-[16px]">Name</label>
@@ -174,7 +169,7 @@ const ContactFormSection = () => {
 
         {/* FOOTER */}
       </div>
-      <div className="w-full flex items-center justify-center bg-[#F1701E]">
+      {/* <div className="w-full flex items-center justify-center bg-[#F1701E]">
         <footer className="max-w-[1300px] w-full text-white flex md:flex-row flex-col items-center justify-between px-[20px] md:px-[40px] py-[10px]">
           <p className="text-center md:text-left footer-text">
             © 2025 All rights reserved | Privacy Policy
@@ -201,7 +196,7 @@ const ContactFormSection = () => {
             </a>
           </div>
         </footer>
-      </div>
+      </div> */}
     </>
   );
 };

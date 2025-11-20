@@ -1,20 +1,31 @@
-import Banner from "../components/Banner";
 import AboutUs from "../components/AboutUs";
-import KeyBenefits from "../components/KeyBenefits";
-import Amenities from "../components/Amenities";
-import Locations from "../components/Locations";
-import Form from "../components/Form";
+import Banner from "../components/Banner";
+import ContactUs from "../components/ContactUs";
+import LandImages from "../components/LandImages";
 import ScrollToTop from "../components/ScrollToTopButton";
-import LocationNormal from "../components/LocationNormal";
+import Strip from "../components/Strip";
+import TwoImgCarousel from "../components/Carousel";
+import TwoImgCarouselHeading from "../components/BigTextHeading";
 const main = () => {
   return (
     <>
       <Banner />
       <AboutUs />
-      <KeyBenefits />
-      <Amenities />
-      <LocationNormal />
-      <Form />
+      <TwoImgCarouselHeading title="" bigText="KEY BENEFITS" />
+      <TwoImgCarousel />
+      <TwoImgCarouselHeading
+        title={
+          <>
+            An airport-centric <br className="hidden md:block" />
+            ecosystem ready for the future
+          </>
+        }
+        bigText="LOREM"
+      />
+      <LandImages />
+      <Strip />
+      <TwoImgCarouselHeading title="" bigText="CONTACT US" />
+      <ContactUs />
       <ScrollToTop />
     </>
   );

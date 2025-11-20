@@ -16,7 +16,8 @@ const Header = () => {
   const scrollToForm = () => {
     const target = document.getElementById("enquiry-form");
     if (target) {
-      const headerOffset = 70;
+      const isDesktop = window.innerWidth >= 768; // Tailwind's md breakpoint
+      const headerOffset = isDesktop ? 210 : 180;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - headerOffset;
@@ -61,7 +62,7 @@ const Header = () => {
   `}
           >
             <span className="relative z-10 text-[14px] leading-none">
-              ENQUIRE NOW
+              CONTACT US
             </span>
 
             {/* Ripple orange effect */}

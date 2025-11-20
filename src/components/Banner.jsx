@@ -1,5 +1,5 @@
-import BannerVideoMobile from "../assets/Banner.mp4";
-import BannerVideoDesktop from "../assets/Banner.mp4";
+import BannerVideoMobile from "../assets/BannerS.mp4";
+import BannerVideoDesktop from "../assets/MobileBanner.mp4";
 import Header from "../components/header";
 
 const Banner = () => {
@@ -8,16 +8,21 @@ const Banner = () => {
       <div className="relative w-full h-full px-5 md:px-10">
         {/* Video Background */}
         <video
-          className=" 
-            absolute top-1/2 left-1/2 
-            min-w-full min-h-full 
-            -translate-x-1/2 -translate-y-1/2
-            object-cover pointer-events-none
-          "
+          className="
+    absolute top-1/2 left-1/2
+    min-w-full min-h-full
+    -translate-x-1/2 -translate-y-1/2
+    object-cover pointer-events-none
+  "
           autoPlay
           muted
           loop
           playsInline
+          webkit-playsinline="true"
+          x5-video-player-type="h5"
+          x5-video-orientation="portraint"
+          x-webkit-airplay="allow"
+          preload="auto"
         >
           <source
             src={BannerVideoDesktop}
@@ -31,20 +36,16 @@ const Banner = () => {
           />
           Your browser does not support the video tag.
         </video>
-
         {/* Content Layer */}
         <div className="absolute inset-0 flex flex-col justify-between items-center">
           <div className="max-w-[1300px] z-50">
             <Header />
           </div>
 
-          <div className="w-full max-w-[1300px] flex items-center justify-between mb-[20px] px-[20px] md:px-[40px]">
-            <p className="w-[300px] text-white">
-              500 Acre <br /> 25M+ Sq.Ft Potential
-            </p>
-
-            <p className="w-[300px] text-white  text-right">
-              The New Front Door <br /> To Hyderabad
+          <div className="w-full max-w-[1300px] flex items-center mb-[20px] px-[20px] md:px-[40px]">
+            <p className="w-[300px] text-white font-size-40 leading-6">
+              The next landmark <br />
+              in India’s urban evolution
             </p>
           </div>
         </div>
