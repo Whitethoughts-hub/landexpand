@@ -6,7 +6,7 @@ const AboutUs = () => {
       className="w-full flex items-center justify-center bg-[#F1701E] bg-cover  bg-no-repeat mb-0 md:mb-[100px]"
       style={{ backgroundImage: `url(${StripBg})` }}
     >
-      <div className="max-w-[1300px] px-5 md:px-10 py-[100px] flex flex-col items-center justify-center">
+      <div className="max-w-[1300px] px-5 md:px-10 py-[50px] md:py-[100px] flex flex-col items-center justify-center">
         {/* Heading Animation */}
 
         {/* Paragraph Animation */}
@@ -15,11 +15,11 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center w-full  relative strip-text leading-12"
+          className="text-center w-full  relative strip-text leading-10 md:leading-12"
         >
-          Building the next global gateway <br /> to growth in Hyderabad
+          Building the Next Global Gateway <br /> to Growth in Hyderabad
         </motion.p>
-        <p className="text-white text-center pt-[10px]">
+        <p className="text-white text-center pt-[10px] px-[20px]">
           We are in pursuit of building a futuristic city that integrates
           <br className="hidden md:block" />
           scalable infrastructure, economic growth & world-class lifestyle.
