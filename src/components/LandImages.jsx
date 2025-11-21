@@ -1,7 +1,7 @@
-import Img3 from "../assets/KeyBenefits/Mallsandlifestyl.jpeg";
-import Img2 from "../assets/KeyBenefits/commercial-hubs.png";
-import Img1 from "../assets/KeyBenefits/Residentialhubs.jpg";
-import Img4 from "../assets/KeyBenefits/healthcare-hospitalit.jpeg";
+import Img3 from "../assets/KeyBenefits/Big-Mall.jpg";
+import Img2 from "../assets/KeyBenefits/Corridors.jpg";
+import Img1 from "../assets/KeyBenefits/New-buildings.jpg";
+import Img4 from "../assets/KeyBenefits/New-Hospital.jpg";
 import { motion } from "framer-motion";
 const FourShowcase = () => {
   return (
