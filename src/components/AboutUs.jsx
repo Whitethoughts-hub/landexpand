@@ -12,7 +12,7 @@ const AboutUs = () => {
           viewport={{ once: true }}
           className="text-center text-[38px] leading-9 pb-[20px] relative"
         >
-          We are Landexpand group
+          We are Landexpand Group
         </motion.h2>
 
         {/* Paragraph Animation */}

@@ -21,7 +21,7 @@ const HeadingSection = ({ title, bigText }) => {
       >
         <div className="max-w-[1300px] w-full px-[20px] md:px-[40px] flex justify-between items-end overflow-visible">
           {/* SMALL MAIN HEADING */}
-          <h2 className="text-[32px] leading-[1] mb-[10px] whitespace-nowrap z-20">
+          <h2 className="text-[32px] leading-[1] mb-[10px] whitespace-nowrap">
             {title}
           </h2>
 
@@ -32,7 +32,7 @@ const HeadingSection = ({ title, bigText }) => {
               hidden md:block
               text-black/5 font-light
               pointer-events-none select-none
-              text-[70px] lg:text-[140px]
+              text-[70px] lg:text-[120px]
               leading-[1]
               whitespace-normal break-words
               max-w-[90%] lg:max-w-[1100px]

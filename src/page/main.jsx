@@ -20,7 +20,7 @@ const main = () => {
             ecosystem ready for the future
           </>
         }
-        bigText="LOREM"
+        bigText="INSPIRATION"
       />
       <LandImages />
       <Strip />

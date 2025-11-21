@@ -31,10 +31,10 @@ const ContactUs = () => {
   };
 
   const nearbyLocations = [
-    { name: "Kokapet", time: "30 mins" },
-    { name: "ORR", time: "37 mins" },
-    { name: "Financial District", time: "25 mins" },
-    { name: "Airport", time: "45 mins" },
+    { name: "Financial District", time: "30 mins" },
+    { name: "kokapet", time: "32 mins" },
+    { name: "Banglore Highway", time: "20 mins" },
+    { name: "ORR", time: "15 mins" },
   ];
 
   const formVariants = {

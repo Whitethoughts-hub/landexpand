@@ -4,8 +4,8 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { motion } from "framer-motion";
 
-import Img1 from "../assets/carousel/Beside-Rajiv-Gandhi-International-Airpor.jpeg";
-import Img2 from "../assets/carousel/buildings.png";
+import Img1 from "../assets/carousel/RajivGandhiInternationalAirport.jpg";
+import Img2 from "../assets/carousel/Buildings.jpg";
 import Img3 from "../assets/carousel/Land.jpg";
 import Img4 from "../assets/carousel/wide-arteria-road.jpeg";
 
@@ -15,7 +15,7 @@ const Carousel = () => {
   const slides = [
     {
       img: Img1,
-      text: "Beside Rajiv Gandhi International <br/> Airport",
+      text: "Beside Rajiv Gandhi <br/> International Airport",
     },
     {
       img: Img2,
@@ -55,6 +55,10 @@ const Carousel = () => {
           >
             A new city is emerging beside RGIA (Shamshabad), one shaped by
             intention, engineered for scale, and designed for the future.
+            Anchored by global connectivity and built on principles of
+            innovation, sustainability, and seamless integration, it is poised
+            to become Hyderabad’s next powerful economic district, where
+            progress gathers momentum.
           </motion.p>
         </div>
 

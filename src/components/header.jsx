@@ -17,7 +17,7 @@ const Header = () => {
     const target = document.getElementById("enquiry-form");
     if (target) {
       const isDesktop = window.innerWidth >= 768; // Tailwind's md breakpoint
-      const headerOffset = isDesktop ? 210 : 180;
+      const headerOffset = isDesktop ? 210 : 70;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - headerOffset;
@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className={`w-full fixed top-0 left-0 z-50 h-[70px] transition-all duration-300
+        className={`w-full fixed top-0 left-0 z-1500 h-[70px] transition-all duration-300
           ${scrolled ? "bg-white shadow-md" : "bg-transparent"}
         `}
         style={{ transform: "translateZ(0)" }}
