@@ -32,7 +32,7 @@ const ContactUs = () => {
 
   const nearbyLocations = [
     { name: "Financial District", time: "30 mins" },
-    { name: "kokapet", time: "32 mins" },
+    { name: "Kokapet", time: "32 mins" },
     { name: "Banglore Highway", time: "20 mins" },
     { name: "ORR", time: "15 mins" },
   ];
