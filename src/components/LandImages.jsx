@@ -1,5 +1,5 @@
-import Img3 from "../assets/KeyBenefits/Big-Mall.jpg";
-import Img2 from "../assets/KeyBenefits/Corridors.jpg";
+import Img3 from "../assets/KeyBenefits/Big-Mall.png";
+import Img2 from "../assets/KeyBenefits/Corridors.png";
 import Img1 from "../assets/KeyBenefits/New-buildings.jpg";
 import Img4 from "../assets/KeyBenefits/New-Hospital.jpg";
 import { motion } from "framer-motion";

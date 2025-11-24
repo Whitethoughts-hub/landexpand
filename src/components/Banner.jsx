@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import BannerVideoDesktop from "../assets/BannerC.mp4";
 import BannerVideoMobile from "../assets/MobileBanner.mp4"; // your mobile video
 import Navbar from "../components/header";
-
 const Banner = () => {
   const videoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -64,5 +63,4 @@ const Banner = () => {
     </section>
   );
 };
-
 export default Banner;
