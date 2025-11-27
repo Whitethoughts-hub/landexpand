@@ -1,0 +1,204 @@
+import React, { useState } from "react";
+const ContactFormSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    agree: false,
+  });
+
+  const [errors, setErrors] = useState({});
+
+  // VALIDATION RULES
+  const nameRegex = /^[A-Za-z.\s]*$/;
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  const phoneRegex = /^[6-9][0-9]{9}$/;
+
+  // VALIDATION FUNCTION
+  const validate = () => {
+    let newErrors = {};
+
+    if (!formData.name || !nameRegex.test(formData.name)) {
+      newErrors.name = "Enter valid name.";
+    }
+
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      newErrors.email = "Enter valid email.";
+    }
+
+    if (!formData.mobile || !phoneRegex.test(formData.mobile)) {
+      newErrors.mobile = "Enter valid 10-digit number.";
+    }
+
+    if (!formData.agree) {
+      newErrors.agree = "Required *";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // HANDLE INPUT CHANGE
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  // SUBMIT
+  // SUBMIT
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    // Log the filled form data to console
+    console.log("Form Data Submitted:", formData);
+
+    // Reset form if needed
+    setFormData({
+      name: "",
+      email: "",
+      mobile: "",
+      agree: false,
+    });
+
+    setErrors({});
+  };
+
+  return (
+    <>
+      <div className="w-full flex flex-col items-center pb-[50px]  bg-cover bg-center bg-no-repeat ">
+        {/* FORM CARD */}
+        <div className="w-full tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative  opacity-100">
+          <form
+            className="flex flex-col gap-[11px] items-start justify-baseline"
+            onSubmit={handleSubmit}
+          >
+            <h2 className="text-[32px] mb-[30px] w-full text-center md:hidden block">
+              Contact Us
+            </h2>
+            {/* Name */}
+            <div className="flex flex-col w-[100%]">
+              <label className=" mb-1 text-[16px]">Name</label>
+              <input
+                type="text"
+                name="name"
+                className="border rounded-lg px-4 py-2 text-sm "
+                placeholder="Enter your name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <p className="h-[10px] text-red-500  error-text mt-[5px] leading-none">
+                {errors.name}
+              </p>
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col  w-[100%]">
+              <label className="mb-1 text-[16px]">Email</label>
+              <input
+                type="email"
+                name="email"
+                className="border rounded-lg px-4 py-2 text-sm"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <p className="h-[10px] text-red-500  error-text mt-[5px] leading-none">
+                {errors.email}
+              </p>
+            </div>
+
+            {/* Mobile */}
+            <div className="flex flex-col  w-[100%]">
+              <label className="mb-1 text-[16px]">Mobile</label>
+              <input
+                type="tel"
+                name="mobile"
+                maxLength={10}
+                className="border rounded-lg px-4 py-2 text-sm"
+                placeholder="Enter your mobile number"
+                value={formData.mobile}
+                onChange={handleChange}
+              />
+              <p className="h-[10px] text-red-500 error-text mt-[5px] leading-none">
+                {errors.mobile}
+              </p>
+            </div>
+
+            {/* Checkbox */}
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                name="agree"
+                checked={formData.agree}
+                onChange={handleChange}
+                className="mt-[3px]"
+              />
+              <p className=" checkbox-text leading-tight checkbox-text">
+                I agree to the terms, conditions and privacy policies of this
+                website.
+              </p>
+            </div>
+
+            <p className="h-[14px] text-red-500 error-text leading-none">
+              {errors.agree}
+            </p>
+
+            {/* Button */}
+            <div className="w-full items-center flex justify-center">
+              <button
+                type="submit"
+                className="
+      inline-flex  items-center justify-center
+      rounded-md bg-[#F1701E]
+      px-8 py-2 font-medium text-neutral-50 
+      shadow-lg shadow-neutral-500/20 
+      transition hover:scale-95
+          "
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* FOOTER */}
+      </div>
+      {/* <div className="w-full flex items-center justify-center bg-[#F1701E]">
+        <footer className="max-w-[1300px] w-full text-white flex md:flex-row flex-col items-center justify-between px-[20px] md:px-[40px] py-[10px]">
+          <p className="text-center md:text-left footer-text">
+            © 2025 All rights reserved | Privacy Policy
+            <br />
+            Designed & Developed by{" "}
+            <a
+              href="https://whitethoughts.in"
+              target="_blank"
+              className="footer-text"
+            >
+              White Thoughts & Branding
+            </a>
+          </p>
+
+          <div className="flex gap-4 mt-4 md:mt-0">
+            <a href="#" className="text-lg">
+              <FaFacebookF />
+            </a>
+            <a href="#" className="text-lg">
+              <FaInstagram />
+            </a>
+            <a href="#" className="text-lg">
+              <FaLinkedinIn />
+            </a>
+          </div>
+        </footer>
+      </div> */}
+    </>
+  );
+};
+
+export default ContactFormSection;
