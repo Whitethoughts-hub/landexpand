@@ -19,7 +19,7 @@ const HeadingSection = ({ title, bigText }) => {
         ref={sectionRef}
         className="w-full flex flex-col items-center justify-center relative overflow-hidden py-0"
       >
-        <div className="max-w-[1300px] w-full px-[20px] md:px-[40px] flex justify-between items-end overflow-visible">
+        <div className="max-w-[1300px] w-full px-[10px] md:px-[40px] flex justify-between items-end overflow-visible">
           {/* SMALL MAIN HEADING */}
           <h2 className="text-[32px] leading-[1] mb-[10px] whitespace-nowrap">
             {title}

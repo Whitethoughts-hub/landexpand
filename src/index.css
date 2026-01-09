@@ -1,25 +1,13 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Fellix";
-  src: url("./assets/fonts/Fellix-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-display: swap;
+body {
+  font-family: "Roboto", sans-serif !important;
 }
 
-@font-face {
-  font-family: "Fellix";
-  src: url("./assets/fonts/Fellix-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-}
-body {
-  font-family: "Fellix", sans-serif;
-}
 p {
   font-size: 16px;
-  font-weight: normal;
-  font-family: "Fellix", sans-serif;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
 }
 .error-text {
   font-size: 10px;
@@ -34,20 +22,20 @@ p {
 }
 
 .shadow-four-sides {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 7px 29px 0 rgba(0, 0, 0, 0.22);
 }
 .footer-text {
   font-size: 14px;
 }
 h2 {
-  font-family: "Fellix", sans-serif;
-  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 .strip-text {
   font-size: 40px !important;
   color: white;
-  font-weight: normal;
-  font-family: "Fellix", sans-serif !important;
+  font-weight: 300;
+ font-family: "Roboto", sans-serif !important;
 }
 .font-size-40 {
   font-size: 20px !important;

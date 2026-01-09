@@ -37,7 +37,7 @@ const Header = () => {
         `}
         style={{ transform: "translateZ(0)" }}
       >
-        <div className="max-w-[1300px] px-[20px] md:px-[40px] py-[16px] mx-auto flex items-center justify-between h-full">
+        <div className="max-w-[1300px] px-[10px] md:px-[40px] py-[16px] mx-auto flex items-center justify-between h-full">
           {/* CHANGE LOGO BASED ON SCROLL */}
           <NavLink to="/">
             <img

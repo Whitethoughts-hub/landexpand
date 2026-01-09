@@ -3,10 +3,10 @@ import StripBg from "../assets/StripBgS.png";
 const AboutUs = () => {
   return (
     <section
-      className="w-full flex items-center justify-center bg-[#F1701E] bg-cover  bg-no-repeat mb-0 md:mb-[100px]"
+      className="w-full flex items-center justify-center bg-[#F1701E] bg-cover  bg-no-repeat"
       style={{ backgroundImage: `url(${StripBg})` }}
     >
-      <div className="max-w-[1300px] px-5 md:px-10 py-[50px] md:py-[100px] flex flex-col items-center justify-center">
+      <div className="max-w-[1300px] px-[10px] md:px-10 py-[50px] md:py-[100px] flex flex-col items-center justify-center">
         {/* Heading Animation */}
 
         {/* Paragraph Animation */}

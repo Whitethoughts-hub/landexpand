@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const AboutUs = () => {
   return (
     <section className="w-full flex items-center justify-center bg-[white] ">
-      <div className="max-w-[1300px] px-[20px] md:px-[40px] py-[50px] md:py-[100px] flex flex-col items-center justify-center">
+      <div className="max-w-[1300px] px-[10px] md:px-[40px] py-[50px] md:py-[100px] flex flex-col items-center justify-center">
         {/* Heading Animation */}
         <motion.h2
           initial={{ opacity: 0, y: 50 }} // start (below & hidden)

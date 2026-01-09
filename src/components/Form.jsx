@@ -73,7 +73,7 @@ const ContactFormSection = () => {
     <>
       <div className="w-full flex flex-col items-center pb-[50px]  bg-cover bg-center bg-no-repeat ">
         {/* FORM CARD */}
-        <div className="w-full tablet-w-70 bg-white shadow-four-sides rounded-xl p-[40px] relative  opacity-100">
+        <div className="w-full tablet-w-70 bg-white shadow-four-sides rounded-xl p-[20px] md:p-[40px] relative  opacity-100">
           <form
             className="flex flex-col gap-[11px] items-start justify-baseline"
             onSubmit={handleSubmit}

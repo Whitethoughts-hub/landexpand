@@ -26,7 +26,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black ">
+    <section className="relative w-full h-[75vh] md:h-screen overflow-hidden bg-black ">
       {/* VIDEO */}
       <video
         ref={videoRef}
@@ -40,7 +40,7 @@ const Banner = () => {
           absolute top-1/2 left-1/2
           -translate-x-1/2 -translate-y-1/2
           min-w-full min-h-full
-         object-cover
+        object-contain md:object-cover
         "
       />
 
@@ -55,7 +55,7 @@ const Banner = () => {
         "
       >
         <Navbar />
-        <p className="w-full max-w-[1300px]  px-[20px] md:px-[40px] text-white font-size-40 leading-6">
+        <p className="w-full max-w-[1300px]  px-[10px] md:px-[40px] text-white font-size-40 leading-6">
           The next landmark <br />
           in India’s urban evolution
         </p>

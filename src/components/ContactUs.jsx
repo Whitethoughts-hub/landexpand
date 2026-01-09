@@ -53,7 +53,7 @@ const ContactUs = () => {
     >
       <div
         ref={ref}
-        className="max-w-[1300px] w-full px-[20px] md:px-[40px] flex flex-col lg:flex-row flex-col-reverse justify-between gap-[50px] lg:gap-0"
+        className="max-w-[1300px] w-full px-[10px] md:px-[40px] flex flex-col lg:flex-row flex-col-reverse justify-between gap-[50px] lg:gap-0"
       >
         {/* LEFT SIDE - LOCATION HIGHLIGHTS */}
         <motion.div

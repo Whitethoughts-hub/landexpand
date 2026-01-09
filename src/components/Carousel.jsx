@@ -32,10 +32,10 @@ const Carousel = () => {
   ];
 
   return (
-    <section className="w-full flex items-center justify-center pb-[50px] md:py-[100px]">
-      <div className="max-w-[1300px] w-full px-[20px] md:px-[40px] flex flex-col flex-col-reverse md:flex-row gap-[50px] md:gap-6">
+    <section className="w-full flex items-center justify-center">
+      <div className="max-w-[1300px] w-full px-[10px] md:px-[40px] flex flex-col flex-col-reverse md:flex-row gap-[50px] md:gap-6">
         {/* RIGHT CONTENT */}
-        <div className="order-2 md:order-1 w-full md:w-[30%] flex flex-col">
+        <div className="order-2 md:order-1 w-full md:w-[40%] flex flex-col">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const Carousel = () => {
         </div>
 
         {/* CAROUSEL */}
-        <div className="order-1 md:order-2 w-full md:w-[70%]">
+        <div className="order-1 md:order-2 w-full md:w-[60%]">
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Autoplay]}
@@ -79,7 +79,8 @@ const Carousel = () => {
             }}
             breakpoints={{
               0: { slidesPerView: 1, slidesPerGroup: 1 },
-              768: { slidesPerView: 3, slidesPerGroup: 1 },
+              768: { slidesPerView: 2, slidesPerGroup: 1 },
+              1024: { slidesPerView: 3, slidesPerGroup: 1 },
             }}
           >
             {slides.map((item, idx) => (
@@ -106,13 +107,13 @@ const Carousel = () => {
           <div className="mt-6 flex items-center justify-center gap-4">
             <button
               onClick={() => swiperRef.current?.slidePrev(300)}
-              className="h-[30px] w-[30px] px-2 hover:outline-[#F1701E] hover:outline-2 bg-[#F1701E] leading-7 shadow rounded text-white text-center  transition text-lg"
+              className="h-[30px] w-[30px] px-2 text-black leading-7 cursor-pointer text-center  transition text-lg"
             >
               ←
             </button>
             <button
               onClick={() => swiperRef.current?.slideNext(300)}
-              className="h-[30px] w-[30px] px-2 hover:outline-[#F1701E] hover:outline-2  bg-[#F1701E] leading-7 shadow rounded text-white text-center transition text-lg"
+              className="h-[30px] w-[30px] px-2 text-black cursor-pointer text-center transition text-lg"
             >
               →
             </button>

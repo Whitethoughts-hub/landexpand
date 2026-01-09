@@ -11,9 +11,9 @@ const main = () => {
     <>
       <Banner />
       <AboutUs />
-      <TwoImgCarouselHeading title="" bigText="KEY BENEFITS" />
+      {/* <TwoImgCarouselHeading title="" bigText="KEY BENEFITS" /> */}
       <TwoImgCarousel />
-      <TwoImgCarouselHeading
+      {/* <TwoImgCarouselHeading
         title={
           <>
             An airport-centric <br className="hidden md:block" />
@@ -21,10 +21,10 @@ const main = () => {
           </>
         }
         bigText="INSPIRATION"
-      />
+      /> */}
       <LandImages />
       <Strip />
-      <TwoImgCarouselHeading title="" bigText="CONTACT US" />
+      {/* <TwoImgCarouselHeading title="" bigText="CONTACT US" /> */}
       <ContactUs />
       <ScrollToTop />
     </>
